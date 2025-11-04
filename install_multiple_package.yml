@@ -1,0 +1,10 @@
+---
+- name: my test Playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: install package
+      yum: 
+       name: [ 'git' , 'make' , 'gcc' , 'wget' , 'telnet' , 'tree' , 'which' , 'httpd' , 'docker*' ]
+       state: installed
+

@@ -1,0 +1,25 @@
+
+---
+- name: install and uninstall apache pkg
+  hosts: webserver
+  become: true
+  tasks:
+     - name: installed httpd package
+       yum:
+        name: httpd
+        state: present
+     - name: start httpd service
+       service:
+         name: httpd
+         state: started
+
+     - name: Stop httpd service
+        service:
+         name: httpd
+         state: stopped
+
+     - name: Remove httpd package
+         yum:
+          name: httpd
+          state: absent
+
